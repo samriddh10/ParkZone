@@ -15,7 +15,7 @@ body {
 .top {
     margin-top: 35px;
     width: 350px;
-    height: 450px;
+    height: 410px;
     border: solid;
     border-radius: 50px;
     display: flex;
@@ -23,6 +23,7 @@ body {
     justify-content: top;
     align-items: center;
     border-color: rgb(0, 0, 0, 0.1);
+    background-color: white;
 }
 
 .userid{
@@ -111,13 +112,14 @@ body {
 
 
 
-.logo {
-    height: 90px;
+.signup .logo {
+    height: 60px;
     margin-top: 40px;
     font-size: 40px;
     justify-content: center;
-    font-family: "Protest Riot", sans-serif;
+    font-family: "Spicy Rice", serif;
     color:  rgb(122, 2, 158);
+    letter-spacing: 3px;
 
 }
 

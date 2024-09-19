@@ -1,7 +1,7 @@
 
 
 .head #title{
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:"Spicy Rice", serif;
     color: white;
     background-color: rgb(122, 2, 158);
     height: 120px;
@@ -10,4 +10,5 @@
     align-items: center;
     margin-bottom: 2px;
     font-size: 45px;
+    letter-spacing: 2px;
 }

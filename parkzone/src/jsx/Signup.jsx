@@ -13,7 +13,15 @@ function Signup() {
     <div>
       <Header />
 
-      <div className="signup">
+      <div 
+        className="signup"
+        style={{
+          backgroundImage: "url(/assets/car-parking-app.png)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+        
+        >
         <form id="login-form">
           <div className="top">
             <div className="logo">ParkZone</div>
