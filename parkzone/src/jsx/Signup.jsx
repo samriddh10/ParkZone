@@ -1,24 +1,66 @@
 import Header from "./Header";
 import "./css/Signup.css";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
+import axios from "axios";
 
 function Signup() {
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
   const [showDialog, setShowDialog] = useState(true);
   const [signUpType, setSignUpType] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    dob: "",
+    phone: "",
+    gender: "",
+    email: "",
+    password: "",
+  });
+
+  const handleInputChange = (e) => {
+    const { id, value, type } = e.target;
+    if (type === "radio") {
+      setFormData({
+        ...formData,
+        gender: value,
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [id]: value,
+      });
+    }
+  };
+  
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const apiEndpoint =
+        signUpType === "User"
+          ? "http://localhost:5000/signup/user"
+          : "http://localhost:5000/signup/owner";
+
+      const response = await axios.post(apiEndpoint, formData);
+      alert(response.data.message);
+      navigate("/"); // Navigate after successful signup
+    } catch (error) {
+      console.error("Error registering!", error);
+      alert(
+        "Error registering! " + (error.response?.data?.error || "Unknown error")
+      );
+    }
+  };
 
   const handleSignupClick = () => {
-    navigate("/"); // Navigate to the signup route
+    navigate("/"); // Navigate to login
   };
   const handleUserClick = () => {
-    console.log("User selected");
     setSignUpType("User");
     setShowDialog(false); // Close dialog
   };
 
   const handleOwnerClick = () => {
-    console.log("Owner selected");
     setSignUpType("Owner");
     setShowDialog(false); // Close dialog
   };
@@ -47,9 +89,8 @@ function Signup() {
             backgroundPosition: "center",
           }}
         >
-          <form id="login-form">
+          <form id="login-form" onSubmit={handleSubmit}>
             <div className="top">
-
               <div className="signup-type">
                 {signUpType === "User"
                   ? "User SignUp"
@@ -61,9 +102,11 @@ function Signup() {
               <div>
                 <input
                   className="userid"
-                  type="Name"
+                  type="text"
                   placeholder="Name"
                   id="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                 />
               </div>
               <div>
@@ -72,14 +115,18 @@ function Signup() {
                   type="date"
                   placeholder="Date of Birth"
                   id="dob"
+                  value={formData.dob}
+                  onChange={handleInputChange}
                 />
               </div>
               <div>
                 <input
                   className="userid"
-                  type="phone"
-                  placeholder="Conatact Number"
+                  type="tel"
+                  placeholder="Contact Number"
                   id="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
                 />
               </div>
               <div className="userid">
@@ -90,6 +137,7 @@ function Signup() {
                   name="gender"
                   value="male"
                   id="male"
+                  onChange={handleInputChange}
                 />
                 Male
                 <input
@@ -98,14 +146,16 @@ function Signup() {
                   name="gender"
                   value="female"
                   id="female"
+                  onChange={handleInputChange}
                 />
                 Female
                 <input
                   className="gender"
                   type="radio"
                   name="gender"
-                  value="female"
+                  value="other"
                   id="other"
+                  onChange={handleInputChange}
                 />
                 Other
               </div>
@@ -116,6 +166,8 @@ function Signup() {
                   type="email"
                   placeholder="Email"
                   id="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                 />
               </div>
               <div>
@@ -124,6 +176,8 @@ function Signup() {
                   type="password"
                   placeholder="Password"
                   id="password"
+                  value={formData.password}
+                  onChange={handleInputChange}
                   required
                 />
               </div>

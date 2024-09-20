@@ -14,7 +14,7 @@ body {
 .top {
     margin-top: 35px;
     width: 350px;
-    height: 410px;
+    height: 420px;
     border: solid;
     border-radius: 50px;
     display: flex;
@@ -106,7 +106,7 @@ body {
 
 .signup .logo {
     height: 60px;
-    margin-top: 0px;
+    margin: 0px 0px 10px 0px;
     font-size: 40px;
     justify-content: center;
     font-family: "Spicy Rice", serif;
@@ -191,7 +191,7 @@ body {
 
 .signup-type {
     font-size: 14px;
-    
+    font-weight: 10;
     color: #333;
     /* Adjust color as needed */
     margin: 10px 0 0 0;
