@@ -1,18 +1,36 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import "./css/Navbar.css";
 
 function Navbar() {
+  
+
+  
+
   return (
     <div className="navbar">
-      
       <div className="nav">
-        <div id="one">Home</div>
-        <div id="one">Login</div>
-        <div id="one"></div>
+        <div><Link to="/home">Home</Link></div>
+        
+        <div><Link to="">Home</Link></div>
+        
       </div>
       <div className="profile">
-        <div id="two">Profile</div>
-       </div> 
+        <div id="two">
+          <img 
+          src={process.env.PUBLIC_URL + "/assets/prof.png"}
+          alt="profile"
+          className="profile-image"/>
+        </div>
+        <div id='tooltip'> 
+
+            <Link to="/profile">Profile</Link>
+            <Link to="/changepassword">Change Password</Link>
+            <Link to ="/logout">Logout</Link>
+            
+            
+          </div>
+      </div>
     </div>
   );
 }

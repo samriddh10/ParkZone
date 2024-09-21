@@ -1,0 +1,59 @@
+.logout {
+    background: rgba(255, 255, 255, 0.8);
+    /* Semi-transparent background */
+    padding: 20px;
+    
+    text-align: center;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.logout h2 {
+    margin: 10px 0 20px 0px;
+    font-size: 20px;
+}
+
+.logout-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.logout-button,
+.cancel-button {
+    background-color: rgb(122, 2, 158);
+    /* Button color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.logout-button:hover,
+.cancel-button:hover {
+    background-color: #007BFF;
+    /* Darker shade on hover */
+}
+
+.cancel-button {
+    background-color: rgb(122, 2, 158);
+    /* Different color for cancel button */
+}
+
+.cancel-button:hover {
+    background-color: #c82333;
+    /* Darker shade on hover */
+}
+
+.logout-box{
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 25px;
+    margin-top: 50px;
+}

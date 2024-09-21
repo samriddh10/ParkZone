@@ -1,6 +1,6 @@
 import Header from "./Header";
 import "./css/Login.css";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import axios from "axios"; // Import Axios for API requests
 
@@ -11,6 +11,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null); // For error handling
+  const [showPopup, setShowPopup] = useState(false); // State for controlling the popup visibility
 
   const handleSignupClick = () => {
     navigate("/signup"); // Navigate to the signup route
@@ -29,39 +30,41 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const role = signUpType; // Either 'User' or 'Owner'
-
     try {
-        const response = await fetch("http://localhost:5000/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ email, password, role }),
-        });
+      const response = await axios.post("http://localhost:5000/login", {
+        email,
+        password,
+        role: signUpType,
+      });
 
-        const data = await response.json();
+      const data = response.data;
 
-        if (response.ok) {
-            // Store the JWT token and role in localStorage/sessionStorage
-            localStorage.setItem("token", data.token);
-            localStorage.setItem("role", data.role);
+      if (response.status === 200) {
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("role", data.role);
 
-            // Redirect based on role
-            if (data.role === "User") {
-                navigate("/user-dashboard");
-            } else if (data.role === "Owner") {
-                navigate("/owner-dashboard");
-            }
-        } else {
-            console.error("Login failed:", data.error);
+        if (data.role === "User") {
+          navigate("/home");
+        } else if (data.role === "Owner") {
+          navigate("/home");
         }
+      } else {
+        setError(data.error); // Set error in state to display it
+        triggerPopup(); // Show the popup
+      }
     } catch (error) {
-        console.error("Error:", error);
+      
+      triggerPopup(); // Show the popup
     }
-};
+  };
+
+  // Function to trigger the popup and hide it after 5 seconds
+  const triggerPopup = () => {
+    setShowPopup(true); // Show the popup
+    setTimeout(() => {
+      setShowPopup(false); // Hide the popup after 5 seconds
+    }, 5000);
+  };
 
   return (
     <div>
@@ -137,6 +140,13 @@ function Login() {
           </form>
         </div>
       </div>
+
+      {/* Pop-up message that appears when login fails */}
+      {showPopup && (
+        <div className="popup">
+          <p>Wrong password. Please try again.</p>
+        </div>
+      )}
     </div>
   );
 }

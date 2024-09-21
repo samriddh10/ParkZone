@@ -1,24 +1,51 @@
 .navbar {
-    background-color: rgb(0, 183, 255);
+    background-color: rgb(201, 0, 251);
     display: flex;
     flex-direction: row;
     padding: 10px 0px 10px 20px;
     justify-content: space-between;
+    color: white;
+    margin: 0 0 1px 0;
+    border-radius: 45PX;
+    font-size: 18px;
 }
 
-.nav{
-    
+.nav {
     display: flex;
     flex-direction: row;
-    font-size: 20px;
     column-gap: 20px;
     padding: 20px 0px 20px 20px;
 }
 
-.profile{
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+.profile-image {
+    padding: 10px 20px 10px 10px;
+    width: 30px;
+    height: 30px;
+    margin: 2px 10px 0px 0px;
+}
+
+.navbar .profile #tooltip{
+    background-color: rgb(122, 2, 158);
+    
+    position: absolute;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    font-size: 20px;
-    padding: 20px 20px 20px 0px;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    border: solid 2px rgb(255, 255, 255);
+    margin: -15px 0 0 -135px;
+    height: 100px;
+    padding: 10px 8px 10px 5px;
+    opacity: 0;
+    pointer-events: none; /* Prevents tooltip from affecting hover state */
+}
+.navbar .profile:hover #tooltip{
+    opacity: 1;
+    transition: 0.5s;
+    pointer-events: auto; /* Prevents tooltip from affecting hover state */
 }
