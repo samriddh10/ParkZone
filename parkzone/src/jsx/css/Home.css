@@ -1,0 +1,19 @@
+.Home{
+    background-color: rgb(76, 0, 147);
+    height:1000px;
+    color: white;
+
+}
+
+.Home .homepage1{
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.Home .homepage1 h1{
+    font-size: 50px;
+    margin-bottom: 20px;
+}
