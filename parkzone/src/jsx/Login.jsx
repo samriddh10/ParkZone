@@ -53,7 +53,6 @@ function Login() {
         triggerPopup(); // Show the popup
       }
     } catch (error) {
-      
       triggerPopup(); // Show the popup
     }
   };
@@ -67,7 +66,7 @@ function Login() {
   };
 
   return (
-    <div>
+    <div className="Login">
       <Header />
       {showDialog && (
         <div className="dialog">
@@ -78,6 +77,12 @@ function Login() {
           <button className="dialog-button" onClick={handleOwnerClick}>
             Owner
           </button>
+          <div className="signup">
+            Don't have an account?
+            <div className="signup-button" onClick={handleSignupClick}>
+              Sign In
+            </div>
+          </div>
         </div>
       )}
       <div className={showDialog ? "blurred-background" : ""}>
@@ -121,7 +126,8 @@ function Login() {
                   required
                 />
               </div>
-              {error && <div className="error-message">{error}</div>} {/* Show error */}
+              {error && <div className="error-message">{error}</div>}{" "}
+              {/* Show error */}
               <div>
                 <button className="login-button" type="submit">
                   Login

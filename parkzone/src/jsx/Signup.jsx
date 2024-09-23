@@ -66,7 +66,7 @@ function Signup() {
   };
 
   return (
-    <div>
+    <div className="signin">
       <Header />
 
       {showDialog && (
@@ -78,6 +78,12 @@ function Signup() {
           <button className="dialog-button" onClick={handleOwnerClick}>
             Owner
           </button>
+          <div className="signup-box">
+                Already have an account?
+                <div className="signup-button" onClick={handleSignupClick}>
+                  Login
+                </div>
+              </div>
         </div>
       )}
       <div className={showDialog ? "blurred-background" : ""}>
