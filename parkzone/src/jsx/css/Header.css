@@ -3,7 +3,7 @@
 .head #title{
     font-family:"Spicy Rice", serif;
     color: white;
-    background-color: rgb(122, 2, 158);
+    background-color: rgb(76, 0, 147);
     height: 120px;
     display: flex;
     justify-content: center;
@@ -11,7 +11,8 @@
     margin-bottom: 2px;
     font-size: 45px;
     letter-spacing: 2px;
-    border-radius: 25px;
+    border-radius: 75px;
+    border: solid 1px white;
     
 }
 
