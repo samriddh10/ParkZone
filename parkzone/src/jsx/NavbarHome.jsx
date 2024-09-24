@@ -18,9 +18,9 @@ function NavbarHome() {
       </div>
       <div className="profile">
 
-        <div id="login"> <Link  to="/login">Log In</Link></div>
+        <Link  to="/login"><div id="login"> Log In</div></Link>
 
-        <div id="signup"><Link to="/signup">Sign Up</Link></div>
+        <Link to="/signup"><div id="signup">Sign Up</div></Link>
           
       </div>
     </div>

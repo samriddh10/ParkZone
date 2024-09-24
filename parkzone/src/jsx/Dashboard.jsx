@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 
 function Dashboard() {
   return (
-    <div>
+    <div className="dashboard">
         <Header />
         <Navbar />
         <h1>Welcome to ParkZone</h1>

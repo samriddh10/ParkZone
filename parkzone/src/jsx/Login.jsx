@@ -44,9 +44,9 @@ function Login() {
         localStorage.setItem("role", data.role);
 
         if (data.role === "User") {
-          navigate("/home");
+          navigate("/dashboard");
         } else if (data.role === "Owner") {
-          navigate("/home");
+          navigate("/dashboard");
         }
       } else {
         setError(data.error); // Set error in state to display it
