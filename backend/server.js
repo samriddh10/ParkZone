@@ -8,9 +8,9 @@ const jwt = require('jsonwebtoken');
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(cors({
-    origin: 'https://parkzone-two.vercel.app',  // Replace with your frontend URL
-    credentials: true // If you're using cookies or credentials
+app.options('*', cors({
+  origin: 'https://parkzone-two.vercel.app/',  
+  credentials: true
 }));
 app.use(bodyParser.json()); // for parsing application/json
 
