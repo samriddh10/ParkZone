@@ -53,6 +53,7 @@ function Login() {
         triggerPopup(); // Show the popup
       }
     } catch (error) {
+      console.log(error);
       triggerPopup(); // Show the popup
     }
   };
