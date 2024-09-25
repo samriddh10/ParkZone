@@ -8,8 +8,10 @@ const jwt = require('jsonwebtoken');
 const app = express();
 const port = process.env.PORT || 5000;
 
-// Middleware
-app.use(cors());
+app.use(cors({
+    origin: 'https://parkzone-two.vercel.app',  // Replace with your frontend URL
+    credentials: true // If you're using cookies or credentials
+}));
 app.use(bodyParser.json()); // for parsing application/json
 
 // Connect to MongoDB
