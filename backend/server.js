@@ -8,12 +8,15 @@ const jwt = require('jsonwebtoken');
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.options('*', cors({
-  origin: 'https://parkzone-two.vercel.app/',  
-  credentials: true
+app.use(cors({
+  origin: 'https://parkzone-two.vercel.app',
+  methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'],
+  credentials: true,  // Important if you're using cookies or authorization headers
+  allowedHeaders: ['Content-Type', 'Authorization'],  // Add any other necessary headers
 }));
-app.use(bodyParser.json()); // for parsing application/json
 
+// Handle preflight requests
+app.options('*', cors());
 // Connect to MongoDB
 const dbURI = 'mongodb+srv://samriddhkumar20:sam123456@cluster0.vvhfn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'; // Update with your MongoDB URI
 mongoose.connect(dbURI, {});
