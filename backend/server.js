@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 
 // Initialize Express
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT ||3000;
 
 app.use(cors());
 // Handle preflight requests
