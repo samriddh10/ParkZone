@@ -31,7 +31,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("https://park-zone-backend.vercel.app/login", {
+      const response = await axios.post("https://park-zone.vercel.app/login", {
         email,
         password,
         role: signUpType,
